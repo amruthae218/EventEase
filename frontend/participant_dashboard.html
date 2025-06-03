@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Participant Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #e6f0ff;
+      font-family: 'Comfortaa', cursive;
+      color: #1e293b; /* Slate-800 */
+    }
+
+    .custom-box {
+      background-color: #ffffff !important;
+    }
+    body {
+      background-image: url('image\ copy.png'); /* update path if needed */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #e6f0ff;
+      font-family: 'Comfortaa', cursive;
+      color: #1e293b;
+    }
+    .custom-box {
+      /* background-color: #ffffff; */
+      background-color: rgba(255, 255, 255, 0.9); /* semi-transparent white for readability */
+      backdrop-filter: blur(10px); /* optional: gives glass effect */
+    }
+
+    .btn-primary {
+      background-color: #2563eb; /* Tailwind blue-600 */
+      color: white;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .btn-primary:hover {
+      background-color: #1d4ed8; /* Tailwind blue-700 */
+    }
+
+    #logoutBtn {
+      background-color: #ef4444 !important; /* Tailwind red-500 */
+      color: white !important;
+    }
+
+    #logoutBtn:hover {
+      background-color: #dc2626 !important; /* Tailwind red-600 */
+    }
+
+    h1, h2 {
+      color: #1e40af; /* Tailwind blue-800 */
+    }
+
+    label {
+      color: #334155; /* Tailwind slate-700 */
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="shadow p-4 flex justify-between items-center custom-box">
+    <h1 class="text-2xl font-bold">EventEase ⌘</h1>
+    <button id="logoutBtn" class="px-4 py-2 rounded font-semibold">Logout</button>
+  </header>
+
+  <main class="flex-grow container mx-auto p-6">
+    <div class="custom-box p-6 rounded-lg shadow max-w-6xl mx-auto">
+      <h2 id="welcomeMsg" class="text-2xl font-semi-bold mb-4">Welcome, Participant!</h2>
+
+      <div class="flex gap-4 mb-6">
+        <button id="browseBtn" class="btn-primary px-4 py-2 rounded font-semibold">Browse Events</button>
+        <button id="myEventsBtn" class="btn-primary px-4 py-2 rounded font-semibold">My Events</button>
+      </div>
+
+      <div id="browseEventsSection" class="hidden">
+        <h3 class="text-xl font-semibold mb-2">Available Events</h3>
+        <div id="browseEventsList" class="space-y-4"></div>
+      </div>
+
+      <div id="myEventsSection" class="hidden">
+        <h3 class="text-xl font-semibold mb-2">Registered Events</h3>
+        <div id="myEventsList" class="space-y-4"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/participant_dashboard.js" defer></script>
+</body>
+</html>

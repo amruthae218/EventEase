@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Organizer Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Comfortaa font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+
+  <!-- Custom Styling -->
+  <style>
+    body {
+      font-family: 'Comfortaa', cursive;
+      background-color: #e6f0ff; /* Soft sky blue */
+      color: #1e293b; /* Slate-800 */
+    }
+
+    .custom-box {
+      background-color: #ffffff !important;
+    }
+    body {
+      background-image: url('imagecopy.jpg'); /* update path if needed */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #e6f0ff;
+      font-family: 'Comfortaa', cursive;
+      color: #1e293b;
+    }
+    .custom-box {
+      /* background-color: #ffffff; */
+      background-color: rgba(255, 255, 255, 0.9); /* semi-transparent white for readability */
+      backdrop-filter: blur(10px); /* optional: gives glass effect */
+    }
+
+    .btn-orange {
+      background-color: #2563eb; /* Tailwind blue-600 */
+      color: white;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .btn-orange:hover {
+      background-color: #1d4ed8; /* Tailwind blue-700 */
+    }
+
+    #logoutBtn {
+      background-color: #ef4444 !important; /* Tailwind red-500 */
+      color: white !important;
+    }
+
+    #logoutBtn:hover {
+      background-color: #dc2626 !important; /* Tailwind red-600 */
+    }
+
+    input, textarea, select {
+      background-color: #f9fafb; /* Tailwind gray-50 */
+    }
+
+    h1, h2 {
+      color: #1e40af; /* Tailwind blue-800 */
+    }
+
+    label {
+      color: #334155; /* Tailwind slate-700 */
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="shadow p-4 flex justify-between items-center custom-box">
+    <h1 class="text-2xl font-bold">EventEase ⌘</h1>
+    <button id="logoutBtn" class="px-4 py-2 rounded font-semibold">Logout</button>
+  </header>
+
+  <main class="flex-grow container mx-auto p-6">
+
+    <!-- Create Event Form -->
+    <section class="custom-box p-6 rounded-lg shadow mb-8 max-w-6xl mx-auto">
+      <h2 class="text-xl font-semibold mb-4">Create New Event</h2>
+      <form id="createEventForm" class="space-y-4">
+
+        <div>
+          <label for="name" class="block mb-1 font-medium">Event Name</label>
+          <input id="name" type="text" class="w-full border border-gray-300 p-2 rounded" required />
+        </div>
+
+        <div>
+          <label for="club" class="block mb-1 font-medium">Club / Faculty</label>
+          <input id="club" type="text" class="w-full border border-gray-300 p-2 rounded" required />
+        </div>
+
+        <div>
+          <label for="auditorium" class="block mb-1 font-medium">Auditorium</label>
+          <select id="auditorium" class="w-full border border-gray-300 p-2 rounded" required>
+            <option value="" disabled selected>Select auditorium</option>
+            <option value="Netaji">Netaji</option>
+            <option value="MGR">MGR</option>
+            <option value="VOC">VOC</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="description" class="block mb-1 font-medium">Description</label>
+          <textarea id="description" class="w-full border border-gray-300 p-2 rounded" rows="3" placeholder="Describe the event..."></textarea>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="date_time" class="block mb-1 font-medium">Date & Time</label>
+            <input id="date_time" type="datetime-local" class="w-full border border-gray-300 p-2 rounded" required />
+          </div>
+          <div>
+            <label for="price" class="block mb-1 font-medium">Price</label>
+            <input id="price" type="number" min="0" step="0.01" class="w-full border border-gray-300 p-2 rounded" required />
+          </div>
+        </div>
+
+        <div>
+          <label for="max_accommodation" class="block mb-1 font-medium">Max Accommodation</label>
+          <input id="max_accommodation" type="number" min="1" class="w-full border border-gray-300 p-2 rounded" required />
+        </div>
+
+        <button type="submit" class="btn-orange px-6 py-2 rounded font-semibold">Create Event</button>
+      </form>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section class="custom-box p-6 rounded-lg shadow mb-8 max-w-6xl mx-auto">
+      <h2 class="text-xl font-semibold mb-4">Upcoming Events You Organized</h2>
+      <div id="upcomingEventsList" class="space-y-4">
+        <!-- Dynamically inserted upcoming events -->
+      </div>
+    </section>
+
+    <!-- Past Events -->
+    <section class="custom-box p-6 rounded-lg shadow max-w-6xl mx-auto">
+      <h2 class="text-xl font-semibold mb-4">Past Events You Organized</h2>
+      <div id="pastEventsList" class="space-y-4">
+        <!-- Dynamically inserted past events -->
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/organizer_dashboard.js"></script>
+</body>
+</html>

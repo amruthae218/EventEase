@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login / Signup - EventEase</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      background-image: url('image\ copy.png'); /* update path if needed */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #e6f0ff;
+      font-family: 'Comfortaa', cursive;
+      color: #1e293b;
+    }
+    .custom-box {
+      /* background-color: #ffffff; */
+      background-color: rgba(255, 255, 255, 0.9); /* semi-transparent white for readability */
+      backdrop-filter: blur(10px); /* optional: gives glass effect */
+    }
+    .custom-input {
+      border: 1px solid #ccc;
+      background-color: #f9fafb;
+    }
+    .btn-blue {
+      background-color: #2563eb;
+      color: white;
+      transition: background-color 0.2s ease-in-out;
+    }
+    .btn-blue:hover {
+      background-color: #1d4ed8;
+    }
+    .link-blue {
+      color: #2563eb;
+    }
+    .link-blue:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-white shadow p-4">
+    <h1 class="text-2xl font-bold text-blue-800 ">EventEase ⌘</h1>
+  </header>
+
+  <!-- Login/Signup Form -->
+  <main class="flex-grow flex items-center justify-center">
+    <div class="custom-box p-8 rounded-lg shadow-md w-full max-w-md mt-6">
+      <h1 class="text-8xl font-bold text-center mb-6">⌘</h1>
+      <h2 id="formTitle" class="text-2xl font-bold text-center mb-6">Login</h2>
+
+      <form id="login-form" class="space-y-4">
+        <div id="fullNameField" class="hidden">
+          <label for="full_name" class="block text-sm font-medium text-gray-700">Full Name</label>
+          <input type="text" id="full_name" class="custom-input mt-1 block w-full px-3 py-2 rounded" />
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+          <input type="email" id="email" class="custom-input mt-1 block w-full px-3 py-2 rounded" required />
+        </div>
+
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+          <input type="password" id="password" class="custom-input mt-1 block w-full px-3 py-2 rounded" required />
+        </div>
+
+        <div id="roleField" class="hidden">
+          <label for="role" class="block text-sm font-medium text-gray-700">Role</label>
+          <select id="role" class="custom-input mt-1 block w-full px-3 py-2 rounded">
+            <option value="participant">Participant</option>
+            <option value="club_rep">Club Representative</option>
+            <option value="faculty">Faculty</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-blue w-full py-2 rounded font-semibold">
+          <span id="submitText">Login</span>
+        </button>
+      </form>
+
+      <p class="mt-4 text-center text-sm text-gray-600">
+        <span id="toggleText">Don't have an account?</span>
+        <button id="toggleBtn" class="link-blue ml-1">Sign up</button>
+      </p>
+    </div>
+  </main>
+
+  <script src="js/login.js"></script>
+</body>
+</html>
